@@ -1,0 +1,68 @@
+<!--
+ Copyright (c) 2017 IBM Corporation.
+
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>MQ REST API Sample Page</title>
+<script src="simplemqweb.js">
+</script>
+<style>
+  body {
+    background-color: LightSkyBlue;
+  }
+  .tab { 
+    margin-left: 40px; 
+  }
+</style>
+</head>
+<body onload="onLoad();">
+<div>
+  <h2>Sample web page for invoking the IBM MQ administrative REST API.</h2>
+
+  <div>
+    <form action="javascript:void(0);" method="POST">
+      REST API host/port: <input type="url" id="urlRoot" name="urlRoot" oninput="setButtonState();" value="https://localhost:9443/"/><br/>
+      <br/>
+      Security enabled:  <input type="checkbox" id="securityEnabled" name="securityEnabled" value="enabled" onchange="securityEnabledClicked();" checked/><br>
+         <div class="tab">
+         User id: <input type="text" id="userId" name="userId" oninput="setButtonState();" value="mqadmin"/><br/>
+         Password: <input type="text" id="password" name="password" oninput="setButtonState();" value="mqadmin"/><br/>
+         </div>
+      <br/>
+      <input type="button" id="showLoginDetailsButton" value="Show login details..." onclick="showLoginDetails()" />
+      <br/>
+
+      <input type="button" id="showInstallationButton" value="Show current installation..." onclick="showInstallation()" /><br>
+      <input type="button" id="showAllQueueManagersButton" value="Show all queue managers..." onclick="showAllQueueManagers()" /><br>
+      <br>
+      All buttons below this point need a queue manager name to be specified: <input type="text" id="qmgrName" name="qmgrName" oninput="setButtonState();" value=""/><br/>
+      <br>
+      <input type="button" id="showSpecifiedQueueManagerButton" value="Show specified queue manager..." onclick="showSpecifiedQueueManager()" /><br>
+      <input type="button" id="showSpecifiedQueueManagerStatusButton" value="Show specified queue manager status..." onclick="showSpecifiedQueueManagerStatus()" /><br>
+      <br>
+      
+      A queue name is needed for all queue operations: <input type="text" id="queueName" name="queueName" oninput="setButtonState();" value=""><br/>
+      A queue description is optional when creating or altering a queue: <input type="text" id="queueDescription" name="queueDescription" oninput="setButtonState();" value=""><br/>
+      <br/>
+      <input type="button" id="submitQueueGetButton" value="Display queue..." onclick="submitQueueGETRequest()" />
+      <input type="button" id="submitQueuePostButton" value="Create queue..." onclick="submitQueuePOSTRequest()" />
+      <input type="button" id="submitQueueDeleteButton" value="Delete queue..." onclick="submitQueueDELETERequest()" />
+      <input type="button" id="submitQueuePatchButton" value="Alter queue..." onclick="submitQueuePATCHRequest()" />
+      <br/><br/>      
+
+    </form>
+  </div>
+  <b>Results:</b><br/>
+  <div id="results"> 
+    Press a button first!
+  </div> 
+</div>
+</body>
+</html>
