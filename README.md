@@ -1,10 +1,10 @@
-#mq-sample-web-ui
+# mq-sample-web-ui
 This repository contains a sample web page which uses JavaScript to interact with the 
 administrative REST API added in MQ 9.0.1. Support has been added to drive all the major 
 capabilities of the REST API available at the MQ 9.0.3 level.
 
 
-##Instructions:
+## Instructions:
 
 In order to use this sample you will need to perform the following steps:
 
@@ -46,9 +46,9 @@ described here:
 https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.sec.doc/q127970_.htm
 
 
-##Problems:
+## Problems:
 
 If you have any problems with this sample please create an Issue and let us know.
 
-##License:
+## License:
 Please read the accompanying license.txt file prior to use.
